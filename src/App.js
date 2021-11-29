@@ -1,6 +1,5 @@
+import CarouselContainer from './components/carousel/CarouselContainer';
 import './scss/App.scss';
-import TodoInput from './components/TodoInput';
-import TodoList from './components/TodoList';
 
 function App() {
   return (
@@ -9,8 +8,7 @@ function App() {
         <h1>Todos</h1>
       </header>
       <main>
-        <TodoInput />
-        <TodoList />
+        <CarouselContainer />
       </main>
     </div>
   );

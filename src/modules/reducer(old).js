@@ -34,18 +34,6 @@ export function toggleTodo(id) {
   };
 }
 
-// export const handleAddTodo = (todo) => (dispatch) => {
-//   dispatch(addTodo(todo));
-// };
-
-// export const handleRemoveTodo = (id) => (dispatch) => {
-//   dispatch(removeTodo(id));
-// };
-
-// export const handleToggleTodo = (id) => (dispatch) => {
-//   dispatch(toggleTodo(id));
-// };
-
 const initial = [{ id: Date.now(), value: '리스트 추가하기', complete: false }];
 
 export function todos(state = initial, action) {
@@ -57,7 +45,9 @@ export function todos(state = initial, action) {
     case REMOVE_TODO:
       return state.filter((todo) => todo.id !== action.id);
     case TOGGLE_TODO:
-      return state.map((todo) => (todo.id !== action.id ? todo : { ...todo, complete: !todo.complete }));
+      return state.map((todo) =>
+        todo.id !== action.id ? todo : { ...todo, complete: !todo.complete }
+      );
     default:
       return state;
   }
