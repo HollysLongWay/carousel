@@ -14,9 +14,9 @@ export default function CarouselContainer() {
   ];
 
   return (
-    <div className="carousel-container">
+    <div className="carousel--container">
       <CarouselList carouselList={carouselList} />
-      <CarouselBtnContainer />
+      <CarouselBtnContainer carouselList={carouselList} />
     </div>
   );
 }
