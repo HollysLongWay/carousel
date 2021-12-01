@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from 'react';
-import { addTodo } from './../modules/reducer';
+import { addTodo } from '../../modules/reducer';
 import { useDispatch } from 'react-redux';
 
 export default function TodoInput() {

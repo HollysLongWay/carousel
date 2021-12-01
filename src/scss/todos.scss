@@ -1,0 +1,122 @@
+$btnColor: cadetblue;
+
+#root {
+  height: 100vh;
+  background-image: linear-gradient(135deg, #ffa6b7 10%, #1e2ad2 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.todos {
+  box-sizing: border-box;
+  padding-top: 100px;
+  width: 1024px;
+  height: 70vh;
+  display: flex;
+  padding-top: 100px;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  background-color: #fff;
+  box-shadow: 2px 4px 9px #333;
+  border-radius: 5px;
+  text-align: center;
+
+  &::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+  }
+
+  &-header {
+    font-size: calc(10px + 2vmin);
+    color: #181818;
+
+    h1 {
+      font-weight: 700;
+      font-size: 70px;
+      padding-bottom: 50px;
+    }
+  }
+
+  form input {
+    width: 400px;
+    padding: 16px 26px 16px 40px;
+    border: none;
+    font-size: 20px;
+    background: #fff;
+    box-shadow: 1px 2px 8px #333;
+    border-radius: 10px;
+  }
+
+  ul {
+    padding: 30px 0;
+    max-height: 500px;
+
+    li {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      color: #181818;
+      font-weight: 600;
+      font-size: 20px;
+      padding: 8px 5px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+      // border-bottom: 1px solid #181818;
+      background-color: #f2f2f2;
+
+      input {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+        padding: 5px;
+      }
+
+      label {
+        flex-grow: 1;
+        padding-left: 20px;
+        text-align: left;
+      }
+
+      &.checked label {
+        text-decoration: line-through;
+      }
+
+      button {
+        background-color: $btnColor;
+        font-weight: 700;
+        color: #fff;
+        border-width: 0;
+        border-radius: 5px;
+        margin-left: auto;
+        padding: 8px 12px;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.todo--footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &--text {
+    color: #fff;
+  }
+
+  &--btnWrap {
+    button {
+      background-color: $btnColor;
+      color: #fff;
+      border-width: 0;
+      border-radius: 2px;
+      margin-left: 10px;
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+  }
+}

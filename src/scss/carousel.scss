@@ -1,0 +1,19 @@
+.carousel--list {
+  width: 100vw;
+  position: relative;
+
+  &__item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+
+    & img {
+      width: 100%;
+    }
+
+    &:first-child {
+      opacity: 1;
+    }
+  }
+}
