@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import CarouselBtnContainer from './CarouselBtnContainer';
-import CarouselList from './CarouselList';
+// import CarouselList from './CarouselList';
+import CarouselItem from './CarouselItem';
 
 export default function CarouselContainer() {
   const carouselList = [
@@ -13,10 +14,45 @@ export default function CarouselContainer() {
     { name: '디저트 페어링', src: './carousel/carousel7.jpg' },
   ];
 
+  const [slide, setSlide] = useState(0);
+
+  const clickPrev = () => {
+    setSlide(slide - 1 < 0 ? slide - 1 : carouselList.length - 1);
+  };
+
+  const clickNext = () => {
+    setSlide(slide + 1 > carouselList.length - 1 ? 0 : slide + 1);
+  };
+
+  useEffect(() => {
+    setTimeout(() => {
+      setSlide(slide + 1 > carouselList.length - 1 ? 0 : slide + 1);
+    }, 3000);
+    // return () => {
+    //   cleanup
+    // }
+  }, [slide]);
+
   return (
     <div className="carousel--container">
-      <CarouselList carouselList={carouselList} />
-      <CarouselBtnContainer carouselList={carouselList} />
+      <ul className="carousel--list">
+        {carouselList.map(({ name, src }, index) => (
+          <li className={`${index === slide ? 'show' : ''} carousel--list__item`} key={src}>
+            <a href="#" title={`${name} 바로가기`} aria-label={`${name} 바로가기`}>
+              <img src={src} alt={name} />
+            </a>
+          </li>
+        ))}
+      </ul>
+      <div className="carouselBtn-container">
+        <button className="btn--prev"></button>
+        <ul className="carousel--indicatorList">
+          {carouselList.map((carousel, index) => (
+            <li className={`${index === slide ? 'on' : ''} carousel--indicator`}></li>
+          ))}
+        </ul>
+        <button className="btn--next"></button>
+      </div>
     </div>
   );
 }
