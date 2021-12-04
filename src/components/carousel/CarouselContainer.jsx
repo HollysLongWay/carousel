@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import CarouselBtnContainer from './CarouselBtnContainer';
 // import CarouselList from './CarouselList';
 import CarouselItem from './CarouselItem';
@@ -25,12 +25,10 @@ export default function CarouselContainer() {
   };
 
   useEffect(() => {
-    setTimeout(() => {
+    let timer = setTimeout(() => {
       setSlide(slide + 1 > carouselList.length - 1 ? 0 : slide + 1);
     }, 3000);
-    // return () => {
-    //   cleanup
-    // }
+    return () => clearTimeout(timer);
   }, [slide]);
 
   return (
@@ -45,13 +43,13 @@ export default function CarouselContainer() {
         ))}
       </ul>
       <div className="carouselBtn-container">
-        <button className="btn--prev"></button>
+        <button className="btn--prev" onClick={clickPrev}></button>
         <ul className="carousel--indicatorList">
           {carouselList.map((carousel, index) => (
             <li className={`${index === slide ? 'on' : ''} carousel--indicator`}></li>
           ))}
         </ul>
-        <button className="btn--next"></button>
+        <button className="btn--next" onClick={clickNext}></button>
       </div>
     </div>
   );
