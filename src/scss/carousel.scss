@@ -15,7 +15,9 @@
       transition: opacity 0.5s;
 
       & img {
+        max-width: 100%;
         height: 100%;
+        object-fit: cover;
       }
 
       &.show {
@@ -66,6 +68,15 @@
 
       &.btn--next {
         background-position: -30px;
+      }
+
+      &.btn--play {
+        background-image: url('../assets/toggleBtn.png');
+        width: 20px;
+
+        &.pause {
+          background-position: -20px;
+        }
       }
     }
   }
