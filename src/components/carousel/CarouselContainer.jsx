@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import CarouselBtnContainer from './CarouselBtnContainer';
 // import CarouselList from './CarouselList';
 import CarouselItem from './CarouselItem';
+import CarouselList from './CarouselList';
 
 export default function CarouselContainer() {
   const carouselList = [
@@ -40,17 +41,15 @@ export default function CarouselContainer() {
 
   return (
     <div className="carousel--container">
-      <ul className="carousel--list">
-        {carouselList.map(({ name, src }, index) => (
-          <li className={`${index === slide ? 'show' : ''} carousel--list__item`} key={src}>
-            <a href="#" title={`${name} 바로가기`} aria-label={`${name} 바로가기`}>
-              <img src={src} alt={name} />
-            </a>
-          </li>
-        ))}
-      </ul>
+      <CarouselList carouselList={carouselList} slide={slide} />
+      <CarouselBtnContainer carouselList={carouselList} slide={slide} />
       <div className="carouselBtn-container">
-        <button className="btn--prev" onClick={clickPrev} aria-label="이전 슬라이드 보기"></button>
+        <button
+          className="btn--prev"
+          onClick={clickPrev}
+          aria-label="이전 슬라이드 보기"
+          title="이전 슬라이드 보기"
+        ></button>
         <ul className="carousel--indicatorList">
           {carouselList.map((_, index) => (
             <li
@@ -60,7 +59,12 @@ export default function CarouselContainer() {
             ></li>
           ))}
         </ul>
-        <button className="btn--next" onClick={clickNext} aria-label="다음 슬라이드 보기"></button>
+        <button
+          className="btn--next"
+          onClick={clickNext}
+          aria-label="다음 슬라이드 보기"
+          title="다음 슬라이드 보기"
+        ></button>
         <button
           className={`${!play ? '' : 'pause'} btn--play`}
           onClick={clickPlay}
