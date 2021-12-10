@@ -1,14 +1,18 @@
 import React from 'react';
+import CarouselItem from './CarouselItem';
 
 export default function CarouselList({ carouselList, slide }) {
   return (
     <ul className="carousel--list">
       {carouselList.map(({ name, src }, index) => (
-        <li className={`${index === slide ? 'show' : ''} carousel--list__item`} key={src}>
-          <a href="#" title={`${name} 바로가기`} aria-label={`${name} 바로가기`}>
-            <img src={src} alt={name} />
-          </a>
-        </li>
+        <CarouselItem
+          key={src}
+          role="carouselItem"
+          index={index}
+          slide={slide}
+          src={src}
+          name={name}
+        />
       ))}
     </ul>
   );

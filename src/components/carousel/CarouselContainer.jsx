@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import CarouselBtnContainer from './CarouselBtnContainer';
-// import CarouselList from './CarouselList';
-import CarouselItem from './CarouselItem';
 import CarouselList from './CarouselList';
 
 export default function CarouselContainer() {
@@ -18,18 +16,6 @@ export default function CarouselContainer() {
   const [slide, setSlide] = useState(0);
   const [play, setPlay] = useState(true);
 
-  const clickPrev = () => {
-    setSlide(slide - 1 < 0 ? carouselList.length - 1 : slide - 1);
-  };
-
-  const clickNext = () => {
-    setSlide(slide + 1 > carouselList.length - 1 ? 0 : slide + 1);
-  };
-
-  const clickPlay = () => {
-    setPlay(!play);
-  };
-
   useEffect(() => {
     let timer =
       play &&
@@ -42,36 +28,13 @@ export default function CarouselContainer() {
   return (
     <div className="carousel--container">
       <CarouselList carouselList={carouselList} slide={slide} />
-      <CarouselBtnContainer carouselList={carouselList} slide={slide} />
-      <div className="carouselBtn-container">
-        <button
-          className="btn--prev"
-          onClick={clickPrev}
-          aria-label="이전 슬라이드 보기"
-          title="이전 슬라이드 보기"
-        ></button>
-        <ul className="carousel--indicatorList">
-          {carouselList.map((_, index) => (
-            <li
-              className={`${index === slide ? 'on' : ''} carousel--indicator`}
-              aria-label={`${index + 1}번째 슬라이드 보기`}
-              title={`${index + 1}번째 슬라이드 보기`}
-            ></li>
-          ))}
-        </ul>
-        <button
-          className="btn--next"
-          onClick={clickNext}
-          aria-label="다음 슬라이드 보기"
-          title="다음 슬라이드 보기"
-        ></button>
-        <button
-          className={`${!play ? '' : 'pause'} btn--play`}
-          onClick={clickPlay}
-          aria-label={`슬라이드 ${!play ? '재생' : '정지'} 하기`}
-          title={`슬라이드  ${!play ? '재생' : '정지'} 하기`}
-        ></button>
-      </div>
+      <CarouselBtnContainer
+        carouselList={carouselList}
+        slide={slide}
+        setSlide={setSlide}
+        play={play}
+        setPlay={setPlay}
+      />
     </div>
   );
 }
