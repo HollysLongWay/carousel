@@ -4,7 +4,10 @@ export default function CarouselItem({ role, index, slide, src, name }) {
   return role === 'carouselItem' ? (
     <li className={`${index === slide ? 'show' : ''} carousel--list__item`} key={src}>
       <a href="#" title={`${name} 바로가기`} aria-label={`${name} 바로가기`}>
-        <img src={src} alt={name} />
+        <picture>
+          <source srcset="" />
+          <img src={src} alt={name} />
+        </picture>
       </a>
     </li>
   ) : (
