@@ -1,21 +1,16 @@
-import React, { useCallback, useState } from 'react';
-import { addTodo } from '../../modules/reducer';
-import { useDispatch } from 'react-redux';
+import React, { useCallback, useState } from "react";
+import { addTodo } from "../../modules/reducer";
+import { useDispatch } from "react-redux";
 
 export default function TodoInput() {
-  const [value, setValue] = useState('');
-  const onChange = (e) => setValue(e.target.value);
-
+  const [value, setValue] = useState("");
+  const onChange = e => setValue(e.target.value);
   const dispatch = useDispatch();
-
-  const onSubmit = useCallback(
-    (e) => {
-      e.preventDefault();
-      setValue('');
-      dispatch(addTodo(value));
-    },
-    [dispatch, value]
-  );
+  const onSubmit = useCallback(e => {
+    e.preventDefault();
+    setValue("");
+    dispatch(addTodo(value));
+  }, []);
 
   return (
     <form onSubmit={onSubmit}>

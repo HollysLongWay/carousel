@@ -23,7 +23,7 @@ export default function CarouselContainer() {
         setSlide(slide + 1 > carouselList.length - 1 ? 0 : slide + 1);
       }, 3000);
     return () => clearTimeout(timer);
-  }, [slide, play, carouselList.length]);
+  }, [slide, play]);
 
   return (
     <div className="carousel--container">

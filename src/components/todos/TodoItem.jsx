@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef } from "react";
 
 export default function TodoItem({ id, value, complete, onChange, onClick }) {
   const todoRef = useRef();
@@ -11,7 +11,7 @@ export default function TodoItem({ id, value, complete, onChange, onClick }) {
         checked={complete}
         onChange={() => {
           onChange(id);
-          todoRef.current.classList.toggle('checked');
+          todoRef.current.classList.toggle("checked");
         }}
       />
       <label htmlFor={id}>{value}</label>
