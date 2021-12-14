@@ -1,40 +1,35 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getTodo, removeTodo, toggleTodo } from '../modules/reducer';
-import TodoItem from './TodoItem';
-import TodoOption from './TodoOption';
+import React, { useCallback, useEffect, useState } from "react";
+import { memo } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getTodo, removeTodo, toggleTodo } from "../modules/reducer";
+import TodoItem from "./TodoItem";
+import TodoOption from "./TodoOption";
 
 export default function TodoList() {
   const dispatch = useDispatch();
-  const fetchTodos = useSelector((store) => store.todos);
+  const fetchTodos = useSelector(store => store.todos);
   const [todos, setTodos] = useState(fetchTodos);
-  const [showType, seshowType] = useState('all');
+  const [showType, seshowType] = useState("all");
 
-  const onChange = useCallback(
-    (id) => {
-      dispatch(toggleTodo(id));
-    },
-    [dispatch]
-  );
+  const onChange = useCallback(id => {
+    dispatch(toggleTodo(id));
+  }, []);
 
-  const onClick = useCallback(
-    (id) => {
-      dispatch(removeTodo(id));
-    },
-    [dispatch]
-  );
+  const onClick = useCallback(id => {
+    dispatch(removeTodo(id));
+  }, []);
 
-  const showAllTodos = () => {
-    seshowType('all');
-  };
+  const showAllTodos = useCallback(() => {
+    seshowType("all");
+  }, []);
 
-  const showActiveTodos = () => {
-    seshowType('active');
-  };
+  const showActiveTodos = useCallback(() => {
+    seshowType("active");
+  }, []);
 
-  const showComTodos = () => {
-    seshowType('complete');
-  };
+  const showComTodos = useCallback(() => {
+    seshowType("complete");
+  }, []);
 
   useEffect(() => {
     dispatch(getTodo());
@@ -42,10 +37,8 @@ export default function TodoList() {
   }, [dispatch, fetchTodos]);
 
   useEffect(() => {
-    if (showType !== 'all') {
-      setTodos(
-        fetchTodos.filter((todo) => (showType === 'complete' ? todo.complete : !todo.complete))
-      );
+    if (showType !== "all") {
+      setTodos(fetchTodos.filter(todo => (showType === "complete" ? todo.complete : !todo.complete)));
     } else setTodos(fetchTodos);
   }, [showType]);
 
@@ -53,16 +46,18 @@ export default function TodoList() {
     <>
       <ul aria-label="할 일 목록">
         {todos &&
-          todos.map((todo) => (
-            <TodoItem
-              key={todo.id}
-              id={todo.id}
-              value={todo.value}
-              complete={todo.complete}
-              onChange={onChange}
-              onClick={onClick}
-            />
-          ))}
+          todos.map(todo =>
+            memo(
+              <TodoItem
+                key={todo.id}
+                id={todo.id}
+                value={todo.value}
+                complete={todo.complete}
+                onChange={onChange}
+                onClick={onClick}
+              />
+            )
+          )}
       </ul>
       {fetchTodos.length > 0 && (
         <TodoOption

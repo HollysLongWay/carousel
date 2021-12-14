@@ -1,6 +1,6 @@
-import React, { useCallback } from 'react';
-import CarouselBtn from './CarouselBtn';
-import CarouselItem from './CarouselItem';
+import React, { useCallback } from "react";
+import CarouselBtn from "./CarouselBtn";
+import CarouselItem from "./CarouselItem";
 
 export default function CarouselBtnContainer({ carouselList, slide, setSlide, play, setPlay }) {
   const clickPrev = useCallback(() => {
