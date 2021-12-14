@@ -5,15 +5,15 @@ import CarouselItem from "./CarouselItem";
 export default function CarouselBtnContainer({ carouselList, slide, setSlide, play, setPlay }) {
   const clickPrev = useCallback(() => {
     setSlide(slide - 1 < 0 ? carouselList.length - 1 : slide - 1);
-  }, []);
+  }, [slide]);
 
   const clickNext = useCallback(() => {
     setSlide(slide + 1 > carouselList.length - 1 ? 0 : slide + 1);
-  }, []);
+  }, [slide]);
 
   const clickPlay = useCallback(() => {
     setPlay(!play);
-  }, []);
+  }, [play]);
 
   return (
     <div className="carouselBtn-container">
