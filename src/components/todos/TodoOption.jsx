@@ -1,9 +1,22 @@
-import React, { useRef } from 'react';
+import React, { useRef } from "react";
+import { useCallback } from "react";
 
-export default function TodoOption({ todos, showAllTodos, showActiveTodos, showComTodos }) {
+export default function TodoOption({ todos, setShowType }) {
   const showAll = useRef();
   const showActive = useRef();
   const showCom = useRef();
+
+  const showAllTodos = useCallback(() => {
+    setShowType("all");
+  }, []);
+
+  const showActiveTodos = useCallback(() => {
+    setShowType("active");
+  }, []);
+
+  const showComTodos = useCallback(() => {
+    setShowType("complete");
+  }, []);
 
   return (
     <section className="todo--footer">
