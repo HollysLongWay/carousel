@@ -1,5 +1,6 @@
 import React, { useCallback } from "react";
 import CarouselBtn from "./CarouselBtn";
+import { MemoizedCarouselIndicator } from "./CarouselIndicator";
 import CarouselItem from "./CarouselItem";
 
 export default function CarouselBtnContainer({ carouselList, slide, setSlide, play, setPlay }) {
@@ -20,7 +21,8 @@ export default function CarouselBtnContainer({ carouselList, slide, setSlide, pl
       <CarouselBtn onClick={clickPrev} role="carouselMove" direct="prev" />
       <ul className="carousel--indicatorList">
         {carouselList.map(({ src }, index) => (
-          <CarouselItem key={src + index} role="carouselIndicator" index={index} slide={slide} />
+          // <CarouselItem key={src + index} role="carouselIndicator" index={index} slide={slide} />
+          <MemoizedCarouselIndicator key={src + index} index={index} slide={slide} />
         ))}
       </ul>
       <CarouselBtn onClick={clickNext} role="carouselMove" direct="next" />
