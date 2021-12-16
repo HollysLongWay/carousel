@@ -1,7 +1,6 @@
 import React from "react";
 
 export default function CarouselIndicator({ index, slide }) {
-  console.log(2);
   return (
     <li
       className={`${index === slide ? "on" : ""} carousel--indicator`}
