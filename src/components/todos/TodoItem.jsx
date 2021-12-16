@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 
 export default function TodoItem({ id, value, complete, onChange, onClick }) {
+  console.log(111);
   const todoRef = useRef();
 
   return (
@@ -21,3 +22,5 @@ export default function TodoItem({ id, value, complete, onChange, onClick }) {
     </li>
   );
 }
+
+export const MemoizedTodoItem = React.memo(TodoItem);

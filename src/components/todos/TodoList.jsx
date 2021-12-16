@@ -1,15 +1,14 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { memo } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getTodo, removeTodo, toggleTodo } from "../modules/reducer";
-import TodoItem from "./TodoItem";
+import { getTodo, removeTodo, toggleTodo } from "../../modules/reducer";
+import { MemoizedTodoItem } from "./TodoItem";
 import TodoOption from "./TodoOption";
 
 export default function TodoList() {
   const dispatch = useDispatch();
   const fetchTodos = useSelector(store => store.todos);
   const [todos, setTodos] = useState(fetchTodos);
-  const [showType, seshowType] = useState("all");
+  const [showType, setShowType] = useState("all");
 
   const onChange = useCallback(id => {
     dispatch(toggleTodo(id));
@@ -17,18 +16,6 @@ export default function TodoList() {
 
   const onClick = useCallback(id => {
     dispatch(removeTodo(id));
-  }, []);
-
-  const showAllTodos = useCallback(() => {
-    seshowType("all");
-  }, []);
-
-  const showActiveTodos = useCallback(() => {
-    seshowType("active");
-  }, []);
-
-  const showComTodos = useCallback(() => {
-    seshowType("complete");
   }, []);
 
   useEffect(() => {
@@ -46,27 +33,26 @@ export default function TodoList() {
     <>
       <ul aria-label="할 일 목록">
         {todos &&
-          todos.map(todo =>
-            memo(
-              <TodoItem
-                key={todo.id}
-                id={todo.id}
-                value={todo.value}
-                complete={todo.complete}
-                onChange={onChange}
-                onClick={onClick}
-              />
-            )
-          )}
+          todos.map(todo => (
+            <MemoizedTodoItem
+              key={todo.id}
+              id={todo.id}
+              value={todo.value}
+              complete={todo.complete}
+              onChange={onChange}
+              onClick={onClick}
+            />
+            // <TodoItem
+            //   key={todo.id}
+            //   id={todo.id}
+            //   value={todo.value}
+            //   complete={todo.complete}
+            //   onChange={onChange}
+            //   onClick={onClick}
+            // />
+          ))}
       </ul>
-      {fetchTodos.length > 0 && (
-        <TodoOption
-          todos={todos}
-          showAllTodos={showAllTodos}
-          showActiveTodos={showActiveTodos}
-          showComTodos={showComTodos}
-        />
-      )}
+      {fetchTodos.length > 0 && <TodoOption todos={todos} setShowType={setShowType} />}
     </>
   );
 }
