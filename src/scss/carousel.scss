@@ -23,6 +23,16 @@
       &.show {
         opacity: 1;
       }
+
+      .sr-only {
+        overflow: hidden;
+        position: absolute !important;
+        clip: rect(0, 0, 0, 0);
+        clip-path: inset(50%);
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+      }
     }
   }
 
@@ -60,7 +70,7 @@
       cursor: pointer;
       width: 40px;
       height: 40px;
-      background-image: url('../assets/arrow.png');
+      background-image: url("../assets/arrow.png");
       background-color: transparent;
       background-size: auto 100%;
       background-repeat: no-repeat;
@@ -71,7 +81,7 @@
       }
 
       &.btn--play {
-        background-image: url('../assets/toggleBtn.png');
+        background-image: url("../assets/toggleBtn.png");
         width: 20px;
 
         &.pause {
