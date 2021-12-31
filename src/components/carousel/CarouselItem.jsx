@@ -1,6 +1,8 @@
 import React from "react";
 
 export default function CarouselItem({ slide, name, src, desc, index }) {
+  const { title, description } = desc;
+
   return (
     <li className={`${index === slide ? "show" : ""} carousel--list__item`} key={src}>
       <a href="#" title={`${name} 바로가기`} aria-label={`${name} 바로가기`}>
@@ -12,8 +14,8 @@ export default function CarouselItem({ slide, name, src, desc, index }) {
       </a>
       {desc && (
         <div className="sr-only">
-          <h2>{desc.h2}</h2>
-          <p>{desc.p}</p>
+          <h2>{title}</h2>
+          <p>{description}</p>
         </div>
       )}
     </li>
