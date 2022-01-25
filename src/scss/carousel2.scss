@@ -1,14 +1,51 @@
 .carousel--wrap {
   position: relative;
-  height: 631px;
+  width: 320px;
+  height: 630px;
+  margin: 0 auto;
+
+  button {
+    border-width: 0;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  .carousel--PrevBtn,
+  .carousel--NextBtn {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    opacity: 0;
+
+    &.is--showing {
+      opacity: 1;
+    }
+
+    &.carousel--PrevBtn {
+      left: -100%;
+    }
+    &.carousel--NextBtn {
+      left: 100%;
+
+      img {
+        transform: translateX(-50%);
+      }
+    }
+
+    img {
+      width: 200%;
+      height: 100%;
+    }
+  }
 
   .carousel--item--wrap {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
     .carousel__item {
       display: none;
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
 
       &.is--active {
         display: block;
@@ -21,7 +58,9 @@
     bottom: 30px;
     left: 50%;
     display: flex;
+    justify-content: center;
     align-items: center;
+    width: 100%;
     transform: translateX(-50%);
 
     .carousel--indicator--wrap {
@@ -40,8 +79,6 @@
     }
 
     .carousel--playBtn {
-      border-width: 0;
-      background-color: transparent;
       width: 20px;
       height: 40px;
       padding: 0;

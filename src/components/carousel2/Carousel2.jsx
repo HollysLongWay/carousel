@@ -57,18 +57,45 @@ function Carousel2() {
   const clickPlayBtn = ({ target }) => {
     console.log(target);
     if (!target.matches(".carousel--playBtn img")) return;
-    console.log(1);
     target.classList.toggle("is--paused");
     setAutoPlay(!autoPlay);
   };
 
+  const isOverMoveBtn = ({ currentTarget }) => {
+    currentTarget.classList.toggle("is--showing");
+  };
+
+  const clicPrevBtn = () => {
+    setActiveIndex(activeIndex - 1 < 0 ? carouselList.length - 1 : activeIndex - 1);
+  };
+
+  const clicNextBtn = () => {
+    setActiveIndex(activeIndex + 1 > carouselList.length - 1 ? 0 : activeIndex + 1);
+  };
+
   return (
     <div className="carousel--wrap">
+      <button
+        className="carousel--PrevBtn"
+        onMouseOver={e => isOverMoveBtn(e)}
+        onMouseOut={e => isOverMoveBtn(e)}
+        onClick={clicPrevBtn}
+      >
+        <img src="./img/carousel2/arrow.png" alt="" />
+      </button>
       <ul className="carousel--item--wrap">
         {carouselList.map(({ src }, index) => (
           <CarouselItem2 activeIndex={activeIndex} src={src} index={index} key={src} />
         ))}
       </ul>
+      <button
+        className="carousel--NextBtn"
+        onMouseOver={e => isOverMoveBtn(e)}
+        onMouseOut={e => isOverMoveBtn(e)}
+        onClick={clicNextBtn}
+      >
+        <img src="./img/carousel2/arrow.png" alt="" />
+      </button>
       <div className="carousel--contoller--wrap">
         <ul className="carousel--indicator--wrap" onClick={clickIndicator}>
           {carouselList.map(({ src }, index) => (
