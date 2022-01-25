@@ -21,7 +21,6 @@ export default function CarouselBtnContainer({ carouselList, slide, setSlide, pl
       <CarouselBtn onClick={clickPrev} role="carouselMove" direct="prev" />
       <ul className="carousel--indicatorList">
         {carouselList.map(({ src }, index) => (
-          // <CarouselItem key={src + index} role="carouselIndicator" index={index} slide={slide} />
           <MemoizedCarouselIndicator key={src + index} index={index} slide={slide} />
         ))}
       </ul>

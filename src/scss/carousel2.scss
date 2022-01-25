@@ -1,0 +1,57 @@
+.carousel--wrap {
+  position: relative;
+  height: 631px;
+
+  .carousel--item--wrap {
+    .carousel__item {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+
+      &.is--active {
+        display: block;
+      }
+    }
+  }
+  .carousel--indicator--wrap {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    .carousel--indicator {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      background-color: gray;
+      border-radius: 50%;
+      margin-right: 10px;
+
+      &.is--active {
+        background-color: black;
+      }
+    }
+
+    button {
+      border-width: 0;
+      background-color: transparent;
+      width: 20px;
+      height: 40px;
+      padding: 0;
+      overflow: hidden;
+
+      &.is--paused {
+        transform: translateX(-50%);
+      }
+
+      img {
+        width: 200%;
+        height: 100%;
+      }
+    }
+  }
+}

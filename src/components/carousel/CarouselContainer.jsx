@@ -6,7 +6,7 @@ export default function CarouselContainer() {
   const carouselList = [
     {
       name: "GLOW LIGHT",
-      src: "./carousel/carousel1",
+      src: "./img/carousel/carousel1",
       desc: {
         title: "일상의 순간을 다채롭게 GLOW LIGHT",
         description: "15000원 이상 구매시 29000원 2021년 11월 26일 금요일 출시"
