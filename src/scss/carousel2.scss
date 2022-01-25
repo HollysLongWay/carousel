@@ -15,28 +15,31 @@
       }
     }
   }
-  .carousel--indicator--wrap {
-    display: flex;
-    align-items: center;
+
+  .carousel--contoller--wrap {
     position: absolute;
     bottom: 30px;
     left: 50%;
+    display: flex;
+    align-items: center;
     transform: translateX(-50%);
 
-    .carousel--indicator {
-      display: inline-block;
-      width: 20px;
-      height: 20px;
-      background-color: gray;
-      border-radius: 50%;
-      margin-right: 10px;
+    .carousel--indicator--wrap {
+      .carousel--indicator {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        background-color: gray;
+        border-radius: 50%;
+        margin-right: 10px;
 
-      &.is--active {
-        background-color: black;
+        &.is--active {
+          background-color: black;
+        }
       }
     }
 
-    button {
+    .carousel--playBtn {
       border-width: 0;
       background-color: transparent;
       width: 20px;
@@ -44,13 +47,14 @@
       padding: 0;
       overflow: hidden;
 
-      &.is--paused {
-        transform: translateX(-50%);
-      }
-
       img {
         width: 200%;
         height: 100%;
+        transform: translateX(-50%);
+
+        &.is--paused {
+          transform: translateX(0%);
+        }
       }
     }
   }

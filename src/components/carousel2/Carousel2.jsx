@@ -49,9 +49,17 @@ function Carousel2() {
     return () => clearTimeout(timer);
   }, [activeIndex, autoPlay]);
 
-  const onClick = ({ target }) => {
-    if (!target.classList.contains("carousel--indicator")) return;
+  const clickIndicator = ({ target }) => {
+    if (!target.matches(".carousel--indicator")) return;
     setActiveIndex(+target.dataset.index);
+  };
+
+  const clickPlayBtn = ({ target }) => {
+    console.log(target);
+    if (!target.matches(".carousel--playBtn img")) return;
+    console.log(1);
+    target.classList.toggle("is--paused");
+    setAutoPlay(!autoPlay);
   };
 
   return (
@@ -61,15 +69,16 @@ function Carousel2() {
           <CarouselItem2 activeIndex={activeIndex} src={src} index={index} key={src} />
         ))}
       </ul>
-      <ul className="carousel--indicator--wrap" onClick={onClick}>
-        {carouselList.map(({ src }, index) => (
-          <CarouselIndic2 activeIndex={activeIndex} index={index} key={src + index} />
-        ))}
-        <button>
+      <div className="carousel--contoller--wrap">
+        <ul className="carousel--indicator--wrap" onClick={clickIndicator}>
+          {carouselList.map(({ src }, index) => (
+            <CarouselIndic2 activeIndex={activeIndex} index={index} key={src + index} />
+          ))}
+        </ul>
+        <button className="carousel--playBtn" onClick={clickPlayBtn}>
           <img src="./img/carousel2/toggleBtn.png" alt="" />
         </button>
-      </ul>
-      <div className="carousel--controller"></div>
+      </div>
     </div>
   );
 }
