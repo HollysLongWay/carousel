@@ -3,21 +3,9 @@ import { useEffect } from "react";
 import { useState } from "react";
 import CarouselItem2 from "./CarouselItem2";
 import CarouselIndic2 from "./CarouselIndic2";
+import MoveBtn from "./MoveBrn";
 
 function Carousel2() {
-  const slide = {
-    id: "test-carousel",
-    label: "[테스트] OO용품 슬라이드 배너",
-    activeIndex: 0,
-    activeClass: "is--active",
-    classes: {
-      list: ".carousel__list",
-      item: ".carousel__item",
-      indicator: ".carousel__indicator"
-    },
-    autoPlay: true
-  };
-
   const carouselList = [
     {
       name: "GLOW LIGHT",
@@ -75,36 +63,19 @@ function Carousel2() {
 
   return (
     <div className="carousel--wrap">
-      <button
-        className="carousel--PrevBtn"
-        onMouseOver={e => isOverMoveBtn(e)}
-        onMouseOut={e => isOverMoveBtn(e)}
-        onClick={clicPrevBtn}
-      >
-        <img src="./img/carousel2/arrow.png" alt="" />
-      </button>
+      <MoveBtn direct="Prev" hoverEvent={isOverMoveBtn} clickEvent={clicNextBtn} />
       <ul className="carousel--item--wrap">
         {carouselList.map(({ src }, index) => (
           <CarouselItem2 activeIndex={activeIndex} src={src} index={index} key={src} />
         ))}
       </ul>
-      <button
-        className="carousel--NextBtn"
-        onMouseOver={e => isOverMoveBtn(e)}
-        onMouseOut={e => isOverMoveBtn(e)}
-        onClick={clicNextBtn}
-      >
-        <img src="./img/carousel2/arrow.png" alt="" />
-      </button>
       <div className="carousel--contoller--wrap">
         <ul className="carousel--indicator--wrap" onClick={clickIndicator}>
           {carouselList.map(({ src }, index) => (
             <CarouselIndic2 activeIndex={activeIndex} index={index} key={src + index} />
           ))}
         </ul>
-        <button className="carousel--playBtn" onClick={clickPlayBtn}>
-          <img src="./img/carousel2/toggleBtn.png" alt="" />
-        </button>
+        <MoveBtn direct="Next" hoverEvent={isOverMoveBtn} clickEvent={clicNextBtn} />
       </div>
     </div>
   );
