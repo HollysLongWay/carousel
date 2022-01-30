@@ -1,9 +1,11 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
+
 import CarouselItem2 from "./CarouselItem2";
 import CarouselIndic2 from "./CarouselIndic2";
-import MoveBtn from "./MoveBrn";
+import MoveBtn from "./MoveBtn";
+import PlayBtn from "./PlayBtn ";
 
 function Carousel2() {
   const carouselList = [
@@ -63,21 +65,23 @@ function Carousel2() {
 
   return (
     <div className="carousel--wrap">
-      <MoveBtn direct="Prev" hoverEvent={isOverMoveBtn} clickEvent={clicNextBtn} />
+      <MoveBtn direct="Prev" hoverEvent={isOverMoveBtn} clickEvent={clicPrevBtn} />
       <ul className="carousel--item--wrap">
         {carouselList.map(({ src }, index) => (
           <CarouselItem2 activeIndex={activeIndex} src={src} index={index} key={src} />
         ))}
       </ul>
+      <MoveBtn direct="Next" hoverEvent={isOverMoveBtn} clickEvent={clicNextBtn} />
       <div className="carousel--contoller--wrap">
         <ul className="carousel--indicator--wrap" onClick={clickIndicator}>
           {carouselList.map(({ src }, index) => (
             <CarouselIndic2 activeIndex={activeIndex} index={index} key={src + index} />
           ))}
         </ul>
-        <MoveBtn direct="Next" hoverEvent={isOverMoveBtn} clickEvent={clicNextBtn} />
+        <PlayBtn clickEvent={clickPlayBtn} />
       </div>
     </div>
   );
 }
+
 export default Carousel2;
