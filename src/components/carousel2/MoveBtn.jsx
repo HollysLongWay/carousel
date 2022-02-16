@@ -7,7 +7,7 @@ const MoveBtn = ({ direct, hoverEvent, clickEvent }) => (
     onMouseOut={e => hoverEvent(e)}
     onClick={clickEvent}
   >
-    <img src="./img/carousel2/arrow.png" alt="" />
+    <img src="./img/carousel2/arrow.png" alt={`${direct === "Next" ? "다음" : "이전"} 상품 보기`} />
   </button>
 );
 

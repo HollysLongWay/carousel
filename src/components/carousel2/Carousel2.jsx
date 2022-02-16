@@ -45,7 +45,6 @@ function Carousel2() {
   };
 
   const clickPlayBtn = ({ target }) => {
-    console.log(target);
     if (!target.matches(".carousel--playBtn img")) return;
     target.classList.toggle("is--paused");
     setAutoPlay(!autoPlay);
