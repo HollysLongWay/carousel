@@ -1,50 +1,76 @@
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+
+a {
+  text-decoration: none;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+
 #root {
   width: 100%;
   display: flex;
   justify-content: center;
-}
-.shoppingMall {
-  padding-top: 20px;
-  width: 332px;
-  font-family: "Spoqa Han Sans Neo", "sans-serif";
-  background-color: #e2999a;
 
-  .ShoppingMallHeader {
-    display: flex;
-    height: 30px;
-    margin-bottom: 50px;
-  }
+  .shoppingMall {
+    padding-top: 20px;
+    width: 332px;
+    font-family: "Spoqa Han Sans Neo", "sans-serif";
+    background-color: #e2999a;
 
-  .item-list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0;
-    .item {
-      width: 278px;
-      background-color: #fff;
-      margin: 0 0 20px 0;
+    .ShoppingMallHeader {
+      display: flex;
+      justify-content: space-between;
+      height: 30px;
+      padding: 0 20px;
+      margin-bottom: 50px;
 
-      .text__wrapper {
-        padding: 52px 20px 40px;
-        .item__title {
-          font-weight: 700;
-          font-size: 24px;
-          color: #e2999a;
-          margin-bottom: 12px;
-        }
-        .item__content {
-          font-size: 14px;
-          line-height: 21px;
-          color: #e2999a;
-        }
+      a {
+        font-weight: 700;
+        font-size: 16px;
       }
 
-      .item__img {
-        width: 100%;
-        height: 210px;
-        display: block;
+      button {
+        margin-left: 20px;
+      }
+    }
+
+    .item-list {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0;
+
+      .item {
+        width: 278px;
+        background-color: #fff;
+        margin: 0 0 20px 0;
+
+        .text__wrapper {
+          padding: 52px 20px 40px;
+
+          .item__title {
+            font-weight: 700;
+            font-size: 24px;
+            color: #e2999a;
+            margin-bottom: 12px;
+          }
+
+          .item__content {
+            font-size: 14px;
+            line-height: 21px;
+            color: #e2999a;
+          }
+        }
+
+        .item__img {
+          width: 100%;
+          height: 210px;
+          display: block;
+        }
       }
     }
   }
