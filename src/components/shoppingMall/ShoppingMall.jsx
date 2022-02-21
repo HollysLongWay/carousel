@@ -1,7 +1,7 @@
 import React from "react";
 
-import Header from "./Header";
-import ItemList from "./ItemList";
+import { MemoHeader } from "./Header";
+import { MemoItemList } from "./ItemList";
 
 const items = [
   {
@@ -26,9 +26,9 @@ export const ItemContext = React.createContext();
 const ShoppingMall = () => {
   return (
     <div className="shoppingMall">
-      <Header />
+      <MemoHeader />
       <ItemContext.Provider value={items}>
-        <ItemList />
+        <MemoItemList />
       </ItemContext.Provider>
     </div>
   );

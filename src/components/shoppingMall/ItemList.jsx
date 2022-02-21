@@ -1,6 +1,6 @@
-import React, { useContext } from "react";
+import React, { memo, useContext } from "react";
 
-import Item from "./Item";
+import { MemoItem } from "./Item";
 import { ItemContext } from "./ShoppingMall";
 
 const ItemList = () => {
@@ -9,10 +9,10 @@ const ItemList = () => {
   return (
     <ul className="item-list">
       {items.map(item => (
-        <Item {...item} />
+        <MemoItem {...item} />
       ))}
     </ul>
   );
 };
 
-export default ItemList;
+export const MemoItemList = memo(ItemList);
