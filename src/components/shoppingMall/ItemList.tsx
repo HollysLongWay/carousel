@@ -6,10 +6,12 @@ import { ItemContext } from "./ShoppingMall";
 const ItemList = () => {
   const items = useContext(ItemContext);
 
+  if (!items) return null;
+
   return (
     <ul className="item-list">
       {items.map(item => (
-        <MemoItem key={item.id} {...item} />
+        <MemoItem key={`${item.id}`} {...item} />
       ))}
     </ul>
   );

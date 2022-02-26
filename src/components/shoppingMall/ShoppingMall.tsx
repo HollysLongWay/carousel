@@ -3,15 +3,15 @@ import { createContext } from "react";
 import { MemoHeader } from "./Header";
 import { MemoItemList } from "./ItemList";
 
-interface item {
+export type itemType = {
   id: Number;
   title: string;
   content: string;
   imageUrl: string;
-}
-type itemList = item[];
+};
+export type itemsType = itemType[];
 
-const items: itemList = [
+const items: itemsType = [
   {
     id: 1,
     title: "랄켈라 베이직 부츠",
@@ -32,7 +32,7 @@ const items: itemList = [
   }
 ];
 
-export const ItemContext = createContext<itemList | null>(null);
+export const ItemContext = createContext<itemsType | null>(null);
 
 const ShoppingMall = () => {
   return (
