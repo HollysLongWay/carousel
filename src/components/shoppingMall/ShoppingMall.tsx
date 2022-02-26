@@ -3,7 +3,14 @@ import { createContext } from "react";
 import { MemoHeader } from "./Header";
 import { MemoItemList } from "./ItemList";
 
-const items = [
+interface item {
+  id: Number;
+  title: string;
+  content: string;
+  imageUrl: string;
+}
+
+const items: item[] = [
   {
     id: 1,
     title: "랄켈라 베이직 부츠",
