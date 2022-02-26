@@ -9,7 +9,7 @@ const ItemList = () => {
   return (
     <ul className="item-list">
       {items.map(item => (
-        <MemoItem {...item} />
+        <MemoItem key={item.id} {...item} />
       ))}
     </ul>
   );
