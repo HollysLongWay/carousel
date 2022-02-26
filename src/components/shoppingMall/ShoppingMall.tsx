@@ -9,8 +9,9 @@ interface item {
   content: string;
   imageUrl: string;
 }
+type itemList = item[];
 
-const items: item[] = [
+const items: itemList = [
   {
     id: 1,
     title: "랄켈라 베이직 부츠",
@@ -31,7 +32,7 @@ const items: item[] = [
   }
 ];
 
-export const ItemContext = createContext();
+export const ItemContext = createContext<itemList | null>(null);
 
 const ShoppingMall = () => {
   return (
