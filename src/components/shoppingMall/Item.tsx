@@ -1,6 +1,12 @@
 import { memo } from "react";
 
-const Item = ({ title, content, imageUrl }) => {
+interface ItemProps {
+  title: string;
+  content: string;
+  imageUrl: string;
+}
+
+const Item = ({ title, content, imageUrl }: ItemProps) => {
   return (
     <li className="item">
       <div className="text__wrapper">
