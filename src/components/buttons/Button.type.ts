@@ -8,7 +8,7 @@
 
 export interface buttonProp {
   state: "upload" | "uploading" | "complete" | "fail" | "disable";
-  disabled: boolean;
+  disabled?: boolean;
 }
 
 // export type buttonStates = "UPLOAD" | "UPLOADING" | "COMPLETE" | "FAIL" | "DISABLE";

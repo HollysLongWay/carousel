@@ -12,9 +12,9 @@ const Button = ({ state }: buttonProp) => {
   const content = contentObj[state];
 
   return (
-    <button type="button" disabled={state === "disable" ? true : false} className={styles.button}>
+    <button type="button" disabled={state === "disable" ? true : false} className={styles.uploadBtn}>
       {content}
-      <img src={`${process.env.PUBLIC_URL}/img/buttons/${state}.png`} alt={content} />
+      <img src={`${process.env.PUBLIC_URL}/img/buttons/${state}.png`} alt={`${content} 버튼 이미지`} />
     </button>
   );
 };

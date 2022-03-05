@@ -6,6 +6,7 @@ import TodoList from "./components/todos/TodoList";
 import "./scss/App.scss";
 import ShoppingMall from "./components/shoppingMall/ShoppingMall";
 import Button from "components/buttons/Button";
+import ButtonContainer from "components/buttons/ButtonContainer";
 
 function App() {
   return (
@@ -15,11 +16,7 @@ function App() {
         {/* <TodoList /> */}
         {/* <Carousel2 /> */}
         {/* <ShoppingMall /> */}
-        <Button state="upload" />
-        <Button state="uploading" />
-        <Button state="complete" />
-        <Button state="fail" />
-        <Button state="disable" />
+        <ButtonContainer />
       </main>
     </HashRouter>
   );
