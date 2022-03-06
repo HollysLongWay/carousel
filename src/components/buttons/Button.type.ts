@@ -6,8 +6,10 @@
 //   disable
 // }
 
+export type buttonState = "upload" | "uploading" | "complete" | "fail" | "disable";
+
 export interface buttonProp {
-  state: "upload" | "uploading" | "complete" | "fail" | "disable";
+  buttonState: buttonState;
   disabled?: boolean;
 }
 
