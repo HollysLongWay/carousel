@@ -1,0 +1,18 @@
+.counter {
+  display: flex;
+}
+
+.quantity {
+  width: 34px;
+  height: 34px;
+  line-height: 34px;
+  text-align: center;
+}
+
+.button {
+  width: 34px;
+  height: 34px;
+  line-height: 34px;
+  text-align: center;
+  background-color: #f1f2f4;
+}

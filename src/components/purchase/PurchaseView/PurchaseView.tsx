@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
+import Counter from "../counter/Counter";
 import OrderBtn from "../orderBtn/OrderBtn";
+import Price from "../price/Price";
 import styles from "./PurchaseView.module.css";
 
 const PurchaseView = () => {
   const [quantity, setQuantity] = useState<Number>(1);
-  const [price, setPrice] = useState<Number>(6370);
+  const price = useRef<Number>(6370);
 
   return (
     <div className="purchaseView">
@@ -30,6 +32,8 @@ const PurchaseView = () => {
         <span className={styles.deliveryBold}>(주문시 결제)</span>
         <p className={styles.DeliveryThin}>10개마다 부과</p>
       </div>
+      <Counter quantity={quantity} setQuantity={setQuantity} />
+      <Price quantity={quantity} price={price} />
     </div>
   );
 };
