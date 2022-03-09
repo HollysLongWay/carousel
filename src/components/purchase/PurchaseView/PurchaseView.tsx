@@ -1,7 +1,11 @@
+import { useState } from "react";
 import OrderBtn from "../orderBtn/OrderBtn";
 import styles from "./PurchaseView.module.css";
 
 const PurchaseView = () => {
+  const [quantity, setQuantity] = useState<Number>(1);
+  const [price, setPrice] = useState<Number>(6370);
+
   return (
     <div className="purchaseView">
       <img
