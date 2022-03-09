@@ -7,6 +7,7 @@ import "./scss/App.scss";
 import ShoppingMall from "./components/shoppingMall/ShoppingMall";
 import Button from "components/buttons/Button";
 import ButtonContainer from "components/buttons/ButtonContainer";
+import PurchaseView from "components/purchase/PurchaseView/PurchaseView";
 
 function App() {
   return (
@@ -16,7 +17,8 @@ function App() {
         {/* <TodoList /> */}
         {/* <Carousel2 /> */}
         {/* <ShoppingMall /> */}
-        <ButtonContainer />
+        {/* <ButtonContainer /> */}
+        <PurchaseView />
       </main>
     </HashRouter>
   );

@@ -1,0 +1,81 @@
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+
+.purchaseView {
+  display: flex;
+  flex-direction: column;
+  min-width: 360px;
+  padding: 16px;
+  font-family: "Spoqa Han Sans Neo", "sans-serif";
+}
+
+.itemView {
+  width: 100%;
+}
+
+.itemName {
+  padding: 15px 0;
+  font-family: "Spoqa Han Sans Neo", "sans-serif";
+  font-family: inherit;
+  font-weight: 700;
+}
+
+.itemPrice {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #dee0e3;
+}
+
+.discount {
+  /* font-family: Spoqa Han Sans Neo; */
+  font-family: initial;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: -0.005em;
+  color: #6b90dc;
+}
+
+.prevPrice {
+  text-decoration: line-through;
+  color: #999;
+  padding-right: 6px;
+}
+
+.curPrice {
+  font-weight: 400;
+  font-size: 22px;
+  color: #333;
+}
+
+.Delivery {
+  font-family: "Spoqa Han Sans Neo", "sans-serif";
+  padding-bottom: 16px;
+  border-bottom: 1px solid #dee0e3;
+}
+
+.Delivery span {
+  font-size: 14px;
+  color: #333;
+}
+
+.Delivery .deliveryPrice {
+  font-weight: 700;
+  font-size: 14px;
+  color: #333;
+  padding-left: 6px;
+  border-left: 1px solid #dee0e3;
+  margin-left: 6px;
+  margin-right: 2px;
+}
+
+.Delivery .deliveryBold {
+  font-weight: 700;
+  font-size: 14px;
+  color: #6b90dc;
+}
+
+.Delivery .DeliveryThin {
+  font-size: 14px;
+  color: #999;
+}
