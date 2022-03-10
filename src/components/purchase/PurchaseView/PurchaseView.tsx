@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import Counter from "../counter/Counter";
 import OrderBtn from "../orderBtn/OrderBtn";
 import Price from "../price/Price";
@@ -6,7 +6,7 @@ import styles from "./PurchaseView.module.css";
 
 const PurchaseView = () => {
   const [quantity, setQuantity] = useState<Number>(1);
-  const price = useRef<Number>(6370);
+  const price: number = 6370;
 
   return (
     <div className="purchaseView">
@@ -34,6 +34,7 @@ const PurchaseView = () => {
       </div>
       <Counter quantity={quantity} setQuantity={setQuantity} />
       <Price quantity={quantity} price={price} />
+      <OrderBtn />
     </div>
   );
 };

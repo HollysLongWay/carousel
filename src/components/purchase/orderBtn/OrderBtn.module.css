@@ -1,0 +1,13 @@
+.OrderBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 10px 0;
+  background-color: #03c75a;
+  border-radius: 6px;
+  font-family: "Spoqa Han Sans Neo", "sans-serif";
+  color: fff;
+  font-weight: 700;
+  font-size: 14px;
+}
