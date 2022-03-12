@@ -12,6 +12,15 @@
   font-size: 14px;
 }
 
+.OrderBtn.hover {
+  background-color: #0aae4f;
+}
+
+.OrderBtn.disabled {
+  background-color: #dee0e3;
+  color: #999;
+}
+
 .OrderBtn img {
   margin-right: 10px;
 }

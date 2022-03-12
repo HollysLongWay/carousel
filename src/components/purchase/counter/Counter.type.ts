@@ -1,4 +1,4 @@
 export default interface CounterProps {
-  quantity: Number;
+  quantity: number;
   setQuantity: Function;
 }

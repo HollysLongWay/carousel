@@ -5,7 +5,7 @@ import Price from "../price/Price";
 import styles from "./PurchaseView.module.css";
 
 const PurchaseView = () => {
-  const [quantity, setQuantity] = useState<Number>(1);
+  const [quantity, setQuantity] = useState<number>(0);
   const price: number = 6370;
 
   return (
@@ -34,7 +34,7 @@ const PurchaseView = () => {
       </div>
       <Counter quantity={quantity} setQuantity={setQuantity} />
       <Price quantity={quantity} price={price} />
-      <OrderBtn />
+      <OrderBtn quantity={quantity} />
     </div>
   );
 };
