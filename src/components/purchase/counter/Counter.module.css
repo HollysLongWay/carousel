@@ -1,5 +1,11 @@
 .counter {
-  display: flex;
+  padding: 16px 0;
+  border-bottom: 1px solid #dee0e3;
+}
+
+.counter > div {
+  display: inline-flex;
+  border: 1px solid #dee0e3;
 }
 
 .quantity {

@@ -7,7 +7,11 @@
   background-color: #03c75a;
   border-radius: 6px;
   font-family: "Spoqa Han Sans Neo", "sans-serif";
-  color: fff;
+  color: #fff;
   font-weight: 700;
   font-size: 14px;
+}
+
+.OrderBtn img {
+  margin-right: 10px;
 }

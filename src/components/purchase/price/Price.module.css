@@ -1,11 +1,32 @@
 .Price {
   display: flex;
+  padding: 16px 0;
   justify-content: space-between;
+}
+
+.description {
+  display: flex;
+  align-items: center;
+  font-family: Spoqa Han Sans Neo;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.description img {
+  margin-left: 6.5px;
+}
+
+.priceWrap {
+  display: flex;
+  align-items: center;
 }
 
 .totalQuantity {
   font-size: 14px;
   color: #999;
+  padding-right: 6px;
+  border-right: 1px solid #dee0e3;
+  margin-right: 6px;
 }
 
 .totalPrice {

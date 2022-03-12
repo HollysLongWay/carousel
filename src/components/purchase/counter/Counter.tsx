@@ -13,13 +13,15 @@ const Counter = ({ quantity, setQuantity }: CounterProps) => {
 
   return (
     <div className={styles.counter}>
-      <button className={styles.button} onClick={plusQuantity}>
-        +
-      </button>
-      <span className={styles.quantity}>{quantity}</span>
-      <button className={styles.button} onClick={minusQuantity}>
-        -
-      </button>
+      <div>
+        <button className={styles.button} onClick={plusQuantity}>
+          +
+        </button>
+        <span className={styles.quantity}>{quantity}</span>
+        <button className={styles.button} onClick={minusQuantity}>
+          -
+        </button>
+      </div>
     </div>
   );
 };
