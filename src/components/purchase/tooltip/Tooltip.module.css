@@ -1,0 +1,20 @@
+.tooltip {
+  position: absolute;
+  transform: translate(-80%, 40%);
+  padding: 24px 44px 16px 16px;
+  background-color: #fff;
+  box-shadow: 1px 1px 5px #4123;
+  line-height: 20px;
+}
+
+.closeBtn {
+  padding: 5px;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.inform__shippingFee {
+  color: #6b90dc;
+}

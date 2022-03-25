@@ -10,6 +10,13 @@ import ButtonContainer from "components/buttons/ButtonContainer";
 import PurchaseView from "components/purchase/PurchaseView/PurchaseView";
 
 function App() {
+  const product = {
+    name: "래피젠 코로나 자가 검사 키트",
+    option: " 2개입X1박스",
+    discountRate: 88,
+    price: 56760
+  };
+
   return (
     <HashRouter>
       <main>
@@ -18,7 +25,7 @@ function App() {
         {/* <Carousel2 /> */}
         {/* <ShoppingMall /> */}
         {/* <ButtonContainer /> */}
-        <PurchaseView />
+        <PurchaseView product={product} />
       </main>
     </HashRouter>
   );

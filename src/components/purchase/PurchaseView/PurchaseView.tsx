@@ -3,10 +3,11 @@ import Counter from "../counter/Counter";
 import OrderBtn from "../orderBtn/OrderBtn";
 import Price from "../price/Price";
 import styles from "./PurchaseView.module.css";
+import productProps from "./Product.type";
 
-const PurchaseView = () => {
+const PurchaseView = ({ product: { name, option, discountRate, price } }: productProps) => {
   const [quantity, setQuantity] = useState<number>(0);
-  const price: number = 6370;
+  const discountedPrice = Math.floor(price - (price * discountRate) / 100);
 
   return (
     <div className="purchaseView">
@@ -16,14 +17,15 @@ const PurchaseView = () => {
         className={styles.itemView}
       />
       <h3 className={styles.itemName}>
-        래피젠 코로나 자가 검사 키트 <br />
-        2개입X1박스
+        {name}
+        <br />
+        {option}
       </h3>
       <div className={styles.itemPrice}>
-        <span className={styles.discount}>88%</span>
+        <span className={styles.discount}>{discountRate + "%"}</span>
         <div>
-          <span className={styles.prevPrice}>56,760원</span>
-          <span className={styles.curPrice}>6,370원</span>
+          <span className={styles.prevPrice}>{price.toLocaleString()}원</span>
+          <span className={styles.curPrice}>{discountedPrice.toLocaleString()}원</span>
         </div>
       </div>
       <div className={styles.Delivery}>
@@ -33,7 +35,7 @@ const PurchaseView = () => {
         <p className={styles.DeliveryThin}>10개마다 부과</p>
       </div>
       <Counter quantity={quantity} setQuantity={setQuantity} />
-      <Price quantity={quantity} price={price} />
+      <Price quantity={quantity} discountedPrice={discountedPrice} />
       <OrderBtn quantity={quantity} />
     </div>
   );
